@@ -1,6 +1,6 @@
-import { Code, Divider, Snippet } from "@nextui-org/react";
+import { Card, CardHeader } from "@nextui-org/react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { solarizedlight } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { materialDark as style } from "react-syntax-highlighter/dist/esm/styles/prism";
 import "./style.css";
 import Data from "../../data/webprog";
 import React from "react";
