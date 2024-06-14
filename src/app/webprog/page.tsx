@@ -11,7 +11,7 @@ export default function Webprog() {
       <div className="z-10 w-full max-w-5xl font-mono text-start flex flex-col gap-10 md:gap-5">
         {Data.map((items) =>
           items.data.map((item, index) => (
-            <Card key={index} className="p-2 z-2" id={item.id}>
+            <Card key={index} className="p-5 z-2" id={item.id}>
               <CardHeader className="text-lg font-bold">
                 {item.title}
               </CardHeader>
@@ -25,6 +25,7 @@ export default function Webprog() {
                     <React.Fragment key={index}>
                       <SyntaxHighlighter
                         language={items.category}
+                        className="rounded-lg"
                         style={style}
                         key={index}
                       >
@@ -33,7 +34,10 @@ export default function Webprog() {
                       {item.showRes && (
                         <div className="my-4">
                           <h2 className="text-lg font-bold">Eredmény: </h2>
-                          <div dangerouslySetInnerHTML={{ __html: code }}></div>
+                          <div
+                            dangerouslySetInnerHTML={{ __html: code }}
+                            className="ms-7"
+                          ></div>
                         </div>
                       )}
                     </React.Fragment>

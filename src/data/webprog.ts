@@ -199,7 +199,7 @@ const Data = [
       {
         title: "CSS szelektorok - osztály/osztály azonosító/class kiválasztása",
         desc: "Az alábbi példában látható, hogyan kell osztály alapján kiválasztani elemeket CSS segítségével<br />Az alábbi példában az <span class='text-red-700 font-bold text-lg'>.osztály</span> osztályú elemeket kiválasztjuk:<br />Egy példa:",
-        code: [".osztály { color: red; }"],
+        code: [".class { color: red; }"],
       },
       {
         title: "CSS szelektorok - gyerek elemek kiválasztása",
