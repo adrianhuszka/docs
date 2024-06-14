@@ -7,12 +7,14 @@ import React from "react";
 
 export default function Webprog() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl font-mono text-start">
+    <main className="flex min-h-screen flex-col items-center justify-between">
+      <div className="z-10 w-full max-w-5xl font-mono text-start flex flex-col gap-10 md:gap-5">
         {Data.map((items) =>
           items.data.map((item, index) => (
-            <div key={index}>
-              <h1 className="text-lg font-bold">{item.title}</h1>
+            <Card key={index} className="p-2 z-2" id={item.id}>
+              <CardHeader className="text-lg font-bold">
+                {item.title}
+              </CardHeader>
               <p
                 className="text-sm"
                 dangerouslySetInnerHTML={{ __html: item.desc }}
@@ -23,7 +25,7 @@ export default function Webprog() {
                     <React.Fragment key={index}>
                       <SyntaxHighlighter
                         language={items.category}
-                        style={solarizedlight}
+                        style={style}
                         key={index}
                       >
                         {code}
@@ -38,8 +40,7 @@ export default function Webprog() {
                   ))}
                 </div>
               }
-              <Divider />
-            </div>
+            </Card>
           ))
         )}
       </div>
