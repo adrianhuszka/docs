@@ -1,10 +1,15 @@
 "use client";
+import { Divider } from "@nextui-org/react";
+import Link from "next/link";
 import { useState } from "react";
 
 interface SidebarLayoutProps {
   target: {
-    title: string;
-    anchor: string;
+    category: string;
+    data: {
+      title: string;
+      anchor: string;
+    }[];
   }[];
 }
 
@@ -29,11 +34,11 @@ const SidebarLayout = ({ target }: SidebarLayoutProps) => {
       )}
 
       <div
-        className={`top-0 left-0 w-[15vw] bg-blue-600 z-50  text-white fixed h-full ease-in-out duration-300 ${
+        className={`top-[5vh] left-0 w-[15vw] bg-gray-900 bg-opacity-50 shadow-glass text-white fixed h-full ease-in-out duration-300 max-h-[95vh] overflow-hidden ${
           showSidebar ? "translate-x-0 " : "translate-x-[-100%]"
         }`}
       >
-        <div className="pt-20 p-2 flex flex-col gap-2">
+        <div className="flex flex-col gap-2  max-h-[95vh] overflow-hidden p-4">
           <div className="flex justify-end w-full gap-2">
             <button
               className="flex text-4xl cursor-pointer justify-end p-2 w-fit"
@@ -49,18 +54,34 @@ const SidebarLayout = ({ target }: SidebarLayoutProps) => {
               </svg>
             </button>
           </div>
-
-          {target.map((item, index) => (
-            <>
-              <a
-                key={index}
-                onClick={() => (window.location.hash = item.anchor)}
-                className="text-white cursor-pointer hover:underline"
-              >
-                {item.title}
-              </a>
-            </>
-          ))}
+          <div className="max-h-[95vh] overflow-auto p-4">
+            {target.map((item, index) => (
+              <div className="flex flex-col gap-2 pb-5">
+                <Divider />
+                <h1 className="text-3xl font-bold uppercase text-center">
+                  {item.category}
+                </h1>
+                <Divider />
+                {item.data.map((item, index) => (
+                  <>
+                    {/* <a
+                      key={index}
+                      onClick={() => (window.location.hash = item.anchor)}
+                      className="text-white cursor-pointer hover:underline"
+                    >
+                      {item.title}
+                    </a> */}
+                    <Link
+                      href={`#${item.anchor}`}
+                      className="text-white cursor-pointer hover:underline"
+                    >
+                      {item.title}
+                    </Link>
+                  </>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>
