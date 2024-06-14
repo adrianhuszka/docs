@@ -1,6 +1,7 @@
 "use client";
 import { Divider } from "@nextui-org/react";
 import Link from "next/link";
+import React from "react";
 import { useState } from "react";
 
 interface SidebarLayoutProps {
@@ -56,14 +57,14 @@ const SidebarLayout = ({ target }: SidebarLayoutProps) => {
           </div>
           <div className="max-h-[95vh] overflow-auto p-4">
             {target.map((item, index) => (
-              <div className="flex flex-col gap-2 pb-5">
+              <div className="flex flex-col gap-2 pb-5" key={index}>
                 <Divider />
                 <h1 className="text-3xl font-bold uppercase text-center">
                   {item.category}
                 </h1>
                 <Divider />
                 {item.data.map((item, index) => (
-                  <>
+                  <React.Fragment key={index}>
                     {/* <a
                       key={index}
                       onClick={() => (window.location.hash = item.anchor)}
@@ -77,7 +78,7 @@ const SidebarLayout = ({ target }: SidebarLayoutProps) => {
                     >
                       {item.title}
                     </Link>
-                  </>
+                  </React.Fragment>
                 ))}
               </div>
             ))}
