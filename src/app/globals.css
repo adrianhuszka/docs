@@ -31,3 +31,24 @@ body {
     text-wrap: balance;
   }
 }
+
+hr {
+  margin-bottom: 1px;
+  margin-top: 1px;
+  height: 0;
+  border: 0;
+  /* position: relative; */
+}
+
+hr:after {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  /* bottom: 0px; */
+  left: 50%;
+  height: 2px;
+  width: 60vw;
+  background-color: #e5d5d5;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
