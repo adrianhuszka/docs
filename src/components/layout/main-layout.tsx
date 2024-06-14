@@ -14,7 +14,7 @@ export const MainLayout = ({ children }: Props) => {
       <header className="dark fixed top-0 z-[500] w-[calc(100%-.66rem)] h-[4rem]">
         <Navbar />
       </header>
-      <main className="dark flex-grow mt-[4rem]">{children}</main>
+      <main className="dark mt-[4rem]">{children}</main>
       <footer className="w-full flex items-center justify-center py-3">
         <Link
           isExternal

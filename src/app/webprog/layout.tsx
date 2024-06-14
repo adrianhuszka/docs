@@ -1,13 +1,27 @@
+import SidebarLayout from "@/components/layout/sidebar-layout";
+
 export default function LoginLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <section className="flex flex-col items-center justify-center py-8 md:py-10">
-      <div className="inline-block text-center justify-center w-full">
-        {children}
+    <>
+      <div className="flex flex-col items-center justify-center min-h-screen py-2">
+        <SidebarLayout
+          target={[
+            {
+              title: "Login",
+              anchor: "html-lang",
+            },
+            {
+              title: "Register",
+              anchor: "register",
+            },
+          ]}
+        />
+        <div className="">{children}</div>
       </div>
-    </section>
+    </>
   );
 }

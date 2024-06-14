@@ -4,6 +4,7 @@ const Data = [
     desc: "Az alábbi példában látható, hogyan állítható be az HTML nyelv. Maga a HTML tag-ben kell elhelyezni az alábbiak szerint:",
     code: ['<html lang="hu"></html>'],
     showRes: false,
+    id: "html-lang",
   },
   {
     title: "HTML oldal kódolása",
