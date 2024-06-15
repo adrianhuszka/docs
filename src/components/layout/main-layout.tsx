@@ -15,7 +15,7 @@ export const MainLayout = ({ children }: Props) => {
         <Navbar />
       </header>
       <main className="dark mt-[4rem]">{children}</main>
-      <footer className="w-full flex items-center justify-center py-3">
+      <footer className="w-full flex flex-col items-center justify-center py-3">
         <Link
           isExternal
           className="flex items-center gap-1 text-current"
@@ -24,6 +24,15 @@ export const MainLayout = ({ children }: Props) => {
         >
           <span className="text-default-600">Powered by</span>
           <p className="text-primary">NextUI</p>
+        </Link>
+        <Link
+          isExternal
+          className="flex items-center gap-1 text-current"
+          href="https://github.com/adrianhuszka/docs"
+          title="Repository"
+        >
+          <span className="text-default-600">Created by</span>
+          <p className="text-primary">Huszka Adrián</p>
         </Link>
       </footer>
     </>
