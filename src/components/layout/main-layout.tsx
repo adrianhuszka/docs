@@ -11,7 +11,7 @@ interface Props {
 export const MainLayout = ({ children }: Props) => {
   return (
     <>
-      <header className="dark fixed top-0 z-[500] w-[calc(100%-.66rem)] h-[4rem]">
+      <header className="dark fixed top-0 z-[500] w-full h-[4rem]">
         <Navbar />
       </header>
       <main className="dark mt-[4rem]">{children}</main>

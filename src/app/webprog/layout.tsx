@@ -18,7 +18,7 @@ export default function LoginLayout({
     <>
       <div className="flex flex-col items-center justify-center min-h-screen py-2">
         <SidebarLayout target={target} />
-        <div className="">{children}</div>
+        <div>{children}</div>
       </div>
     </>
   );

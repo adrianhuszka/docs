@@ -7,11 +7,13 @@ export type IconSvgProps = SVGProps<SVGSVGElement> & {
 export type WebprogData = {
   category: string;
   categoryTitle: string;
-  data: {
-    title: string;
-    id: string;
-    desc: string;
-    code: string[];
-    showRes: boolean;
-  }[];
-}[];
+  data: WebprogDataItem[];
+};
+
+export type WebprogDataItem = {
+  title: string;
+  id: string;
+  desc: string;
+  code: string[];
+  showRes: boolean;
+};

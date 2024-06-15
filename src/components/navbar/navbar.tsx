@@ -38,7 +38,7 @@ export const Navbar = () => {
         <NavbarContent className="sm:hidden basis-1 pl-4" justify="start">
           <NavbarMenuToggle />
         </NavbarContent>
-        <NavbarContent>
+        <NavbarContent className="z-[500]">
           <ul className="hidden sm:flex gap-4 justify-start ml-2">
             {siteConfig.navItems.map((item) => (
               <NavbarItem key={item.href}>

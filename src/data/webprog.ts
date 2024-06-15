@@ -115,8 +115,8 @@ const Data = [
         title: "Listák",
         desc: "Az alábbi példában látható, hogyan kell rendeyett és rendezettlen listát létrehozni:",
         code: [
-          "Rendezett lista:\n<ol>\n\t<li>Elem 1</li>\n\t<li>Elem 2</li>\n</ol>",
-          "Rendezetlen lista:\n<ul>\n\t<li>Elem 1</li>\n\t<li>Elem 2</li>\n</ul>",
+          'Rendezett lista:\n<ol style="list-style-type: decimal;">\n\t<li>Elem 1</li>\n\t<li>Elem 2</li>\n</ol>',
+          'Rendezetlen lista:\n<ul style="list-style-type: disc;">\n\t<li>Elem 1</li>\n\t<li>Elem 2</li>\n</ul>',
         ],
         showRes: true,
         id: "listak",
@@ -255,6 +255,6 @@ const Data = [
       },
     ],
   },
-] as WebprogData;
+] as WebprogData[];
 
 export default Data;

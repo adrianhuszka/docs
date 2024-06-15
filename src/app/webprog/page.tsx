@@ -1,61 +1,39 @@
-import { Card, CardHeader, Divider } from "@nextui-org/react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialDark as style } from "react-syntax-highlighter/dist/esm/styles/prism";
 import "./style.css";
 import Data from "../../data/webprog";
 import React from "react";
+import CardMain from "@/components/card/card-main";
+import { WebprogData } from "@/types";
+import SearchBar from "@/components/search/search-bar";
 
-export default function Webprog() {
+export default async function WebprogPage({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
+  const search =
+    typeof searchParams.search === "string" ? searchParams.search : undefined;
+
+  const filteredData = Data.map((items) => {
+    if (!search) return items;
+    return {
+      ...items,
+      data: items.data.filter(
+        (item) =>
+          item.title.toLowerCase().includes(search.toLowerCase()) ||
+          item.desc.toLowerCase().includes(search.toLowerCase()) ||
+          item.code.some((code) =>
+            code.toLowerCase().includes(search.toLowerCase())
+          )
+      ),
+    };
+  }).filter((items) => items.data.length > 0);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className="flex min-h-screen flex-col items-center justify-between w-screen">
       <div className="z-10 w-full max-w-5xl font-mono text-start flex flex-col gap-10 md:gap-5">
-        {Data.map((items) => (
-          <>
-            <Divider />
-            <h1
-              key={items.categoryTitle}
-              className="text-4xl font-bold uppercase text-center"
-            >
-              {items.categoryTitle}
-            </h1>
-            <Divider />
-            {items.data.map((item, index) => (
-              <Card key={index} className="p-5 z-2 anchor-offset" id={item.id}>
-                <CardHeader className="text-lg font-bold">
-                  {item.title}
-                </CardHeader>
-                <p
-                  className="text-sm"
-                  dangerouslySetInnerHTML={{ __html: item.desc }}
-                ></p>
-                {
-                  <div>
-                    {item.code.map((code, index) => (
-                      <React.Fragment key={index}>
-                        <SyntaxHighlighter
-                          language={items.category}
-                          className="rounded-lg"
-                          style={style}
-                          key={index}
-                        >
-                          {code}
-                        </SyntaxHighlighter>
-                        {item.showRes && (
-                          <div className="my-4">
-                            <h2 className="text-lg font-bold">Eredmény: </h2>
-                            <div
-                              dangerouslySetInnerHTML={{ __html: code }}
-                              className="ms-7"
-                            ></div>
-                          </div>
-                        )}
-                      </React.Fragment>
-                    ))}
-                  </div>
-                }
-              </Card>
-            ))}
-          </>
+        <SearchBar />
+        {filteredData.map((items: WebprogData, index) => (
+          <CardMain key={index} items={items} />
         ))}
       </div>
     </main>

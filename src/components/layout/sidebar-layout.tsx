@@ -22,7 +22,7 @@ const SidebarLayout = ({ target }: SidebarLayoutProps) => {
       {!showSidebar && (
         <svg
           onClick={() => setShowSidebar(!showSidebar)}
-          className="fixed z-30 flex items-center cursor-pointer left-5 top-[10%] "
+          className="fixed z-[25] flex items-center cursor-pointer left-5 top-[10%] "
           fill="#2563EB"
           viewBox="0 0 100 80"
           width="40"
@@ -35,7 +35,7 @@ const SidebarLayout = ({ target }: SidebarLayoutProps) => {
       )}
 
       <div
-        className={`top-[5vh] left-0 w-[15vw] bg-gray-900 bg-opacity-50 shadow-glass text-white fixed h-full ease-in-out duration-300 max-h-[95vh] overflow-hidden ${
+        className={`md:top-[5vh] top-[9vh] z-[25] left-0 md:w-[15vw] 100vw bg-gray-900 md:bg-opacity-50 shadow-glass text-white fixed h-full ease-in-out duration-300 max-h-[95vh] overflow-hidden ${
           showSidebar ? "translate-x-0 " : "translate-x-[-100%]"
         }`}
       >
@@ -75,6 +75,7 @@ const SidebarLayout = ({ target }: SidebarLayoutProps) => {
                     <Link
                       href={`#${item.anchor}`}
                       className="text-white cursor-pointer hover:underline"
+                      onClick={() => setShowSidebar(!showSidebar)}
                     >
                       {item.title}
                     </Link>

@@ -6,14 +6,6 @@ th {
   padding: 10px;
 }
 
-ul {
-  list-style-type: disc;
-}
-
-ol {
-  list-style-type: decimal;
-}
-
 .anchor-offset {
   scroll-margin-top: 75px;
 }
