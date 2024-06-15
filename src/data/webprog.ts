@@ -89,7 +89,7 @@ const Data = [
         title: "Kép beszúrása",
         desc: 'Az <span class="font-bold text-lg">img</span> tag segítségével lehet képet beszúrni az oldalra. Az <span class="font-bold text-lg">src</span> attribútumban kell megadni a kép elérési útját, az <span class="font-bold text-lg">alt</span> attribútumban pedig a kép leírását, amely akkor jelenik meg, ha a kép nem töltődik, a <span class="font-bold text-lg">title</span> attribútumban pedig a kép leírása jelenik meg, ha a felhasználó ráviszi az egeret a képre.<br />Az alábbi példában látható, hogyan kell egy képet beszúrni az oldalra:',
         code: ['<img src="kép.jpg" alt="Kép leírása" title="Kép leírása">'],
-        showRes: true,
+        showRes: false,
         id: "kep",
       },
       {

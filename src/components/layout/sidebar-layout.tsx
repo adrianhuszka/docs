@@ -23,7 +23,7 @@ const SidebarLayout = ({ target }: SidebarLayoutProps) => {
         <svg
           onClick={() => setShowSidebar(!showSidebar)}
           className="fixed z-[25] flex items-center cursor-pointer left-5 top-[10%] "
-          fill="#2563EB"
+          fill="#fff"
           viewBox="0 0 100 80"
           width="40"
           height="40"

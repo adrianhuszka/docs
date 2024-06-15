@@ -15,13 +15,17 @@ export const siteConfig: SiteConfig = {
   description: "",
   navItems: [
     {
-      label: "Webprog",
+      label: "Webprogramozás",
       href: "/webprog",
     },
   ],
   navMenuItems: [
     {
-      label: "webprog",
+      label: "Főoldal",
+      href: "/",
+    },
+    {
+      label: "Webprogramozás",
       href: "/webprog",
     },
   ],

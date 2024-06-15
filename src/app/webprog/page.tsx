@@ -29,13 +29,13 @@ export default async function WebprogPage({
   }).filter((items) => items.data.length > 0);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between w-screen">
+    <div className="flex min-h-screen flex-col items-center justify-between w-screen">
       <div className="z-10 w-full max-w-5xl font-mono text-start flex flex-col gap-10 md:gap-5">
         <SearchBar />
         {filteredData.map((items: WebprogData, index) => (
           <CardMain key={index} items={items} />
         ))}
       </div>
-    </main>
+    </div>
   );
 }
