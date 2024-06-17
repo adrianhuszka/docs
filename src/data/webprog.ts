@@ -30,9 +30,10 @@ const Data = [
       },
       {
         title: "HTML CSS fájl linkelése",
-        desc: "Az alábbi példában látható, hogyan kell linkelni az HTML oldalhoz a CSS fájlt az alábbiak szerint, a link tag-et minden esetben a head tag-en belül kell elhelyezni:",
+        desc: "Az alábbi példában látható, hogyan kell egy CSS fájlt linkelni az HTML oldalhoz, a link tag-et minden esetben a head tag-en belül kell elhelyezni és a href attribútumban kell megadni a CSS fájl elérési útját, amelyet minden esetben relatív útvonallal kell megadni.<br />1. példa: ugyanabban a mappában található<br />2. példa: egy CSS mappán belül található",
         code: [
-          '<head>\n\t...\n\t<link rel="stylesheet" href="/fájlneve/">\n\t...\n</head>',
+          '<head>\n\t...\n\t<link rel="stylesheet" href="style.css">\n\t...\n</head>',
+          '<head>\n\t...\n\t<link rel="stylesheet" href="./css/style.css">\n\t...\n</head>',
         ],
         showRes: false,
         id: "css-link",
@@ -129,8 +130,11 @@ const Data = [
     data: [
       {
         title: "Háttérkép beállítása CSS segítségével",
-        desc: "Az alábbi példában látható, hogyan kell háttérképet beállítani CSS segítségével:",
-        code: ["background-image: url('háttérkép.jpg')"],
+        desc: "Az alábbi példában látható, hogyan kell háttérképet beállítani CSS segítségével.<br />1. példa: a háttérkép egyanb mappában található<br />2. példa: a háttérkép a képek/img mappában, illetve a css a egy CSS nevű mappában található<br />",
+        code: [
+          "background-image: url('háttérkép.jpg')",
+          "background-image: url('../img/háttérkép.jpg')",
+        ],
         showRes: false,
         id: "hatterkep",
       },

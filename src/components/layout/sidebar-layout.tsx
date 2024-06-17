@@ -1,5 +1,5 @@
 "use client";
-import { Divider } from "@nextui-org/react";
+import { Button, Divider, Tooltip } from "@nextui-org/react";
 import Link from "next/link";
 import React from "react";
 import { useState } from "react";
@@ -20,18 +20,20 @@ const SidebarLayout = ({ target }: SidebarLayoutProps) => {
   return (
     <>
       {!showSidebar && (
-        <svg
-          onClick={() => setShowSidebar(!showSidebar)}
-          className="fixed z-[25] flex items-center cursor-pointer left-5 top-[10%] "
-          fill="#fff"
-          viewBox="0 0 100 80"
-          width="40"
-          height="40"
-        >
-          <rect width="100" height="10"></rect>
-          <rect y="30" width="100" height="10"></rect>
-          <rect y="60" width="100" height="10"></rect>
-        </svg>
+        <Tooltip content="Open Sidebar" color="secondary">
+          <Button
+            isIconOnly
+            variant="light"
+            onClick={() => setShowSidebar(!showSidebar)}
+            className="fixed z-[25] flex items-center cursor-pointer left-5 top-[10%] p-2 w-14"
+          >
+            <svg fill="#fff" viewBox="0 0 100 80" width="40" height="40">
+              <rect width="100" height="10"></rect>
+              <rect y="30" width="100" height="10"></rect>
+              <rect y="60" width="100" height="10"></rect>
+            </svg>
+          </Button>
+        </Tooltip>
       )}
 
       <div
@@ -41,8 +43,10 @@ const SidebarLayout = ({ target }: SidebarLayoutProps) => {
       >
         <div className="flex flex-col gap-2  max-h-[95vh] overflow-hidden p-4">
           <div className="flex justify-end w-full gap-2">
-            <button
+            <Button
               className="flex text-4xl cursor-pointer justify-end p-2 w-fit"
+              isIconOnly
+              variant="light"
               onClick={() => setShowSidebar(!showSidebar)}
             >
               <svg
@@ -53,7 +57,7 @@ const SidebarLayout = ({ target }: SidebarLayoutProps) => {
               >
                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
               </svg>
-            </button>
+            </Button>
           </div>
           <div className="max-h-[95vh] overflow-auto p-4">
             {target.map((item, index) => (

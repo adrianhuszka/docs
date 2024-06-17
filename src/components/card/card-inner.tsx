@@ -15,7 +15,7 @@ export default function CardInner({
     <Card className="p-5 z-2 anchor-offset" id={item.id}>
       <CardHeader className="text-lg font-bold">{item.title}</CardHeader>
       <p
-        className="text-sm"
+        className="text-sm text-justify"
         dangerouslySetInnerHTML={{ __html: item.desc }}
       ></p>
       {
