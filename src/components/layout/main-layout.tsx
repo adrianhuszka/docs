@@ -18,10 +18,10 @@ export const MainLayout = ({ children }: Props) => {
       <header className="dark fixed top-0 z-[500] w-full h-[4rem]">
         <Navbar />
       </header>
-      <main className="dark md:pt-[4rem] pt-[8rem]">{children}</main>
+      <main className="dark xl:pt-[4rem] pt-[9rem]">{children}</main>
       {pathname !== "/" && (
         <Button
-          className="fixed z-[25] flex items-center cursor-pointer md:right-40 right-5 md:bottom-40 bottom-5 p-2"
+          className="fixed z-[25] flex items-center cursor-pointer xl:right-40 right-5 xl:bottom-40 bottom-5 p-2"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           isIconOnly
           color="primary"
