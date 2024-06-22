@@ -1,3 +1,4 @@
+import { Session } from "next-auth";
 import { SVGProps } from "react";
 
 export type IconSvgProps = SVGProps<SVGSVGElement> & {
@@ -16,4 +17,8 @@ export type WebprogDataItem = {
   desc: string;
   code: string[];
   showRes: boolean;
+};
+
+export type CustomSession = Omit<Session, "user"> & {
+  [key: string]: any;
 };

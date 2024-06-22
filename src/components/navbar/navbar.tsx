@@ -15,8 +15,10 @@ import NextLink from "next/link";
 import clsx from "clsx";
 import { siteConfig } from "@/config/site";
 import { Logo } from "../icons/logo";
+import { useSession } from "next-auth/react";
 
 export const Navbar = () => {
+  const session = useSession();
   return (
     <NextUINavbar
       maxWidth="xl"
@@ -55,6 +57,35 @@ export const Navbar = () => {
               </NavbarItem>
             ))}
           </ul>
+        </NavbarContent>
+        <NavbarContent justify="end">
+          {session.data ? (
+            <NavbarItem>
+              <NextLink
+                className={clsx(
+                  linkStyles({ color: "foreground" }),
+                  "data-[active=true]:text-primary data-[active=true]:font-medium"
+                )}
+                color="foreground"
+                href={"/api/auth/signout"}
+              >
+                Logout
+              </NextLink>
+            </NavbarItem>
+          ) : (
+            <NavbarItem>
+              <NextLink
+                className={clsx(
+                  linkStyles({ color: "foreground" }),
+                  "data-[active=true]:text-primary data-[active=true]:font-medium"
+                )}
+                color="foreground"
+                href={"/api/auth/signin"}
+              >
+                Login
+              </NextLink>
+            </NavbarItem>
+          )}
         </NavbarContent>
       </NavbarContent>
       <NavbarMenu>

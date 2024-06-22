@@ -1,6 +1,10 @@
+import { getAccessToken, getUser } from "@/utils/sessionTokenAccessor";
 import { Card, CardHeader, Link, Tooltip } from "@nextui-org/react";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const session = await getUser();
+  console.log(session);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between md:p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between flex flex-wrap md:flex-row flex-col font-mono text-sm lg:flex gap-6">
