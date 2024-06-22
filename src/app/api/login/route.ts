@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { hashPassword } from "@/app/actions/user/create";
+import { hashPassword } from "@/utils/passwordHash";
 
 export async function POST(req: Request) {
   const { username, password } = await req.json();
