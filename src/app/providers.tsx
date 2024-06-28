@@ -6,6 +6,9 @@ import { Next13ProgressBar } from "next13-progressbar";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ThemeProviderProps } from "next-themes/dist/types";
 import { SessionProvider } from "next-auth/react";
+import { useState } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 export interface ProvidersProps {
   children: React.ReactNode;
@@ -14,16 +17,31 @@ export interface ProvidersProps {
 
 export function Providers({ children, themeProps }: ProvidersProps) {
   const router = useRouter();
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            staleTime: 1000 * 5,
+            refetchInterval: 1000 * 5,
+          },
+        },
+      })
+  );
+
   return (
     <NextUIProvider navigate={router.push}>
       <NextThemesProvider {...themeProps}>
-        <Next13ProgressBar
-          height="4px"
-          color="#0A2FFF"
-          options={{ showSpinner: false }}
-          showOnShallow
-        />
-        <SessionProvider>{children}</SessionProvider>
+        <QueryClientProvider client={queryClient}>
+          <Next13ProgressBar
+            height="4px"
+            color="#0A2FFF"
+            options={{ showSpinner: false }}
+            showOnShallow
+          />
+          <ReactQueryDevtools />
+          <SessionProvider>{children}</SessionProvider>
+        </QueryClientProvider>
       </NextThemesProvider>
     </NextUIProvider>
   );

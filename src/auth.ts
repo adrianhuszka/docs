@@ -50,14 +50,22 @@ const auth: AuthOptions = {
   callbacks: {
     async signIn({ user, account }) {
       account!.userId = user.id;
-      account!.userName = (user as any).username;
+      account!.username = (user as any).username;
       account!.userEmail = user.email;
+      account!.fullName = (user as any).fullName;
+      account!.role = (user as any).role;
+      // account!.profilePicture = (user as any).profilePicture;
 
       return true;
     },
     async jwt({ token, account }) {
       if (account) {
-        token.userName = account.userName;
+        token.username = account.username;
+        token.userId = account.userId;
+        token.userEmail = account.userEmail;
+        token.fullName = account.fullName;
+        token.userRole = account.role;
+        // token.profilePicture = account.profilePicture;
       }
       return token;
     },
@@ -71,7 +79,14 @@ const auth: AuthOptions = {
       token: JWT;
     }) {
       if (user !== null) {
-        session.user = token.userName;
+        session.user = {
+          id: token.userId,
+          username: token.username,
+          email: token.userEmail,
+          fullName: token.fullName,
+          role: token.userRole,
+          // profilePicture: token.profilePicture,
+        };
         session.token = token;
       }
       return await session;

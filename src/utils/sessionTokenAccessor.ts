@@ -17,3 +17,8 @@ export async function getUser() {
   }
   return null;
 }
+
+export async function getSession() {
+  const session = await getServerSession(auth);
+  return session;
+}

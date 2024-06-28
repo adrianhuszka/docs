@@ -17,6 +17,8 @@ export async function POST(req: Request) {
         username: true,
         email: true,
         password: true,
+        fullName: true,
+        role: true,
       },
     });
 
@@ -28,9 +30,14 @@ export async function POST(req: Request) {
         },
       });
     } else {
-      return new Response("Invalid username or password", {
-        status: 401,
-      });
+      return new Response(
+        JSON.stringify({
+          message: "Hibás felhasználónév vagy jelszó",
+        }),
+        {
+          status: 401,
+        }
+      );
     }
   } catch (e: any) {
     throw new Error(e);

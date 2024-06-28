@@ -14,7 +14,7 @@ export type WebprogData = {
 export type WebprogDataItem = {
   title: string;
   id: string;
-  desc: string;
+  description: string;
   code: string[];
   showRes: boolean;
 };
