@@ -1,8 +1,7 @@
-import NextAuth, { AuthOptions, User } from "next-auth";
+import { AuthOptions, User } from "next-auth";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { prisma } from "@/lib/prisma";
-import { Session } from "inspector";
 import { JWT } from "next-auth/jwt";
 import { CustomSession } from "./types";
 
